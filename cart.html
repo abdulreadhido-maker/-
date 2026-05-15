@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="ar">
 <head>
 <meta charset="UTF-8">
@@ -67,3 +66,33 @@ render();
 
 </body>
 </html>
+<ul id="list"></ul>
+
+<button onclick="checkout()">الدفع</button>
+
+<script>
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+function render(){
+let list = document.getElementById("list");
+list.innerHTML="";
+
+cart.forEach((item,i)=>{
+let li=document.createElement("li");
+li.innerHTML=item + " <button onclick='remove("+i+")'>حذف</button>";
+list.appendChild(li);
+});
+}
+
+function remove(i){
+cart.splice(i,1);
+localStorage.setItem("cart",JSON.stringify(cart));
+render();
+}
+
+function checkout(){
+location.href="checkout.html";
+}
+
+render();
+</script>
