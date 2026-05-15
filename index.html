@@ -70,3 +70,14 @@ font-weight:bold;
 
 </body>
 </html>
+<button onclick="go()">ابدأ التسوق</button>
+
+<script>
+function go(){
+if(!localStorage.getItem("user")){
+location.href="auth.html";
+}else{
+location.href="shop.html";
+}
+}
+</script>
