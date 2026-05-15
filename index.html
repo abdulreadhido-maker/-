@@ -81,3 +81,28 @@ location.href="shop.html";
 }
 }
 </script>
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>دخول</title>
+</head>
+<body>
+
+<h2>تسجيل الدخول</h2>
+
+<input id="user" placeholder="اسمك">
+<button onclick="login()">دخول</button>
+
+<script>
+function login(){
+let u = document.getElementById("user").value;
+localStorage.setItem("user",u);
+location.href="index.html";
+}
+</script>
+
+</body>
+</html>
+<a href="shop.html">ابدأ التسوق</a>
+<a href="cart.html">السلة</a>
