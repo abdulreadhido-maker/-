@@ -1,79 +1,112 @@
+<!DOCTYPE html>
 <html lang="ar">
 <head>
 <meta charset="UTF-8">
 <title>المتجر</title>
-<style>
-body{margin:0;font-family:Arial;background:#f5f5f7;text-align:center;}
-header{background:white;padding:15px;}
-a{margin:10px;text-decoration:none;color:black;font-weight:bold;}
 
-.products{
+<style>
+body{margin:0;font-family:Arial;background:#f5f5f7;}
+
+header{
+position:fixed;top:0;width:100%;
+display:flex;
+justify-content:space-between;
+padding:15px;
+background:white;
+box-shadow:0 2px 10px rgba(0,0,0,0.1);
+z-index:10;
+}
+
+.search{
+padding:8px;
+border-radius:10px;
+border:1px solid #ccc;
+}
+
+.grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
 gap:20px;
-padding:30px;
+padding:100px 20px;
 }
 
 .card{
 background:white;
-padding:15px;
 border-radius:15px;
-box-shadow:0 10px 20px rgba(0,0,0,0.1);
+padding:15px;
+text-align:center;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+transition:0.3s;
 }
 
+.card:hover{transform:scale(1.05);}
+
 button{
-padding:10px;
+margin:5px;
+padding:8px 12px;
 border:none;
-background:black;
-color:white;
 border-radius:10px;
 cursor:pointer;
 }
+
+.buy{background:black;color:white;}
+.info{background:#007bff;color:white;}
 </style>
 </head>
+
 <body>
 
 <header>
-<a href="index.html">الرئيسية</a>
-<a href="shop.html">المتجر</a>
-<a href="cart.html">السلة</a>
+<div>🛍️ المتجر</div>
+<input class="search" id="search" placeholder="ابحث...">
 </header>
 
-<h1>🛒 المنتجات</h1>
-
-<div class="products">
+<div class="grid">
 
 <div class="card">
-<h3>آيفون</h3>
+<h3>آيفون 15</h3>
 <p>4500 ريال</p>
-<button onclick="add('آيفون')">إضافة</button>
+<button class="buy" onclick="add('آيفون 15')">شراء</button>
+<button class="info" onclick="openP('آيفون 15')">تفاصيل</button>
 </div>
 
 <div class="card">
-<h3>سامسونج</h3>
+<h3>سامسونج S24</h3>
 <p>3200 ريال</p>
-<button onclick="add('سامسونج')">إضافة</button>
+<button class="buy" onclick="add('سامسونج S24')">شراء</button>
+<button class="info" onclick="openP('سامسونج S24')">تفاصيل</button>
 </div>
 
 <div class="card">
-<h3>سماعات</h3>
-<p>900 ريال</p>
-<button onclick="add('سماعات')">إضافة</button>
+<h3>MacBook</h3>
+<p>8000 ريال</p>
+<button class="buy" onclick="add('MacBook')">شراء</button>
+<button class="info" onclick="openP('MacBook')">تفاصيل</button>
 </div>
 
 </div>
 
 <script>
-function add(item){
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
-cart.push(item);
-localStorage.setItem("cart", JSON.stringify(cart));
-alert("تمت الإضافة 🛒");
+let cart=JSON.parse(localStorage.getItem("cart"))||[];
+
+function add(x){
+cart.push(x);
+localStorage.setItem("cart",JSON.stringify(cart));
+alert("🛒 تمت الإضافة");
 }
+
+function openP(x){
+localStorage.setItem("product",x);
+location.href="product.html";
+}
+
+document.getElementById("search").addEventListener("input",e=>{
+let v=e.target.value.toLowerCase();
+document.querySelectorAll(".card").forEach(c=>{
+c.style.display=c.innerText.toLowerCase().includes(v)?"block":"none";
+});
+});
 </script>
 
 </body>
 </html>
-<a href="index.html">الرئيسية</a>
-<a href="shop.html">المتجر</a>
-<a href="cart.html">السلة</a>
