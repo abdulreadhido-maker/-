@@ -1,51 +1,42 @@
 <html lang="ar">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ultimate Store</title>
+<title>Store Pro</title>
 
 <style>
 body{margin:0;font-family:Arial;background:#0f0f10;color:white;}
 
 header{
-position:fixed;
-top:0;width:100%;
 display:flex;
 justify-content:space-between;
-padding:15px 25px;
-background:rgba(0,0,0,0.6);
-backdrop-filter:blur(10px);
+padding:15px;
+background:#111;
+position:sticky;
+top:0;
 }
 
 nav a{
+color:white;
 margin:0 10px;
 text-decoration:none;
-color:white;
-font-weight:bold;
 }
 
 .hero{
-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
 text-align:center;
-background:radial-gradient(circle,#1a1a1a,#000);
+padding:80px 20px;
 }
 
-.hero h1{font-size:65px;}
+.hero h1{font-size:50px;}
 .hero p{color:#aaa;}
 
 .btn{
-padding:12px 25px;
-border:none;
-border-radius:12px;
+display:inline-block;
+padding:12px 20px;
 background:white;
 color:black;
-cursor:pointer;
-margin-top:20px;
-font-weight:bold;
+border-radius:10px;
+text-decoration:none;
+margin-top:10px;
 }
 </style>
 </head>
@@ -53,63 +44,19 @@ font-weight:bold;
 <body>
 
 <header>
-<div>🛍️ Ultimate Store</div>
+<div>🛍️ Store Pro</div>
 <nav>
 <a href="index.html">الرئيسية</a>
 <a href="shop.html">المتجر</a>
 <a href="cart.html">السلة</a>
-<a href="checkout.html">الدفع</a>
 </nav>
 </header>
 
 <div class="hero">
-<h1>متجر أسطوري</h1>
-<p>تجربة تسوق مستقبلية 🚀</p>
-<button class="btn" onclick="location.href='shop.html'">ابدأ الآن</button>
+<h1>متجر احترافي</h1>
+<p>تجربة تسوق بدون تعقيد</p>
+<a class="btn" href="shop.html">ابدأ التسوق</a>
 </div>
 
 </body>
 </html>
-<button onclick="go()">ابدأ التسوق</button>
-
-<script>
-function go(){
-if(!localStorage.getItem("user")){
-location.href="auth.html";
-}else{
-location.href="shop.html";
-}
-}
-</script>
-<!DOCTYPE html>
-<html lang="ar">
-<head>
-<meta charset="UTF-8">
-<title>دخول</title>
-</head>
-<body>
-
-<h2>تسجيل الدخول</h2>
-
-<input id="user" placeholder="اسمك">
-<button onclick="login()">دخول</button>
-
-<script>
-function login(){
-let u = document.getElementById("user").value;
-localStorage.setItem("user",u);
-location.href="index.html";
-}
-</script>
-
-</body>
-</html>
-<a href="shop.html">ابدأ التسوق</a>
-<a href="cart.html">السلة</a>
-<a href="page.html">انتقال</a>
-<a href="shop.html">اذهب للمتجر</a>
-<script>
-if(!localStorage.getItem("user")){
-location.href="auth.html";
-}
-</script>
