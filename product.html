@@ -1,4 +1,3 @@
-# -<!DOCTYPE html>
 <html lang="ar">
 <head>
 <meta charset="UTF-8">
@@ -55,3 +54,17 @@ alert("تمت الإضافة 🛒");
 
 </body>
 </html>
+<h2 id="name"></h2>
+
+<button onclick="add()">إضافة للسلة</button>
+
+<script>
+let product = localStorage.getItem("product");
+document.getElementById("name").innerText = product;
+
+function add(){
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+cart.push(product);
+localStorage.setItem("cart",JSON.stringify(cart));
+}
+</script>
