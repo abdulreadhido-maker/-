@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>لوحة التحكم</title>
+
+<style>
+body{font-family:Arial;background:#111;color:white;text-align:center;}
+.box{margin:20px;padding:20px;background:#222;border-radius:10px;}
+input{padding:10px;width:200px;}
+button{padding:10px;background:lime;border:none;border-radius:10px;}
+</style>
+</head>
+
+<body>
+
+<h1>📊 Admin Panel</h1>
+
+<div class="box">
+<h3>إضافة منتج</h3>
+<input id="pname" placeholder="اسم المنتج">
+<button onclick="add()">إضافة</button>
+</div>
+
+<ul id="list"></ul>
+
+<script>
+let products=JSON.parse(localStorage.getItem("products"))||[];
+
+function add(){
+let p=document.getElementById("pname").value;
+products.push(p);
+localStorage.setItem("products",JSON.stringify(products));
+render();
+}
+
+function render(){
+let l=document.getElementById("list");
+l.innerHTML="";
+products.forEach(p=>{
+let li=document.createElement("li");
+li.textContent=p;
+l.appendChild(li);
+});
+}
+
+render();
+</script>
+
+</body>
+</html>
