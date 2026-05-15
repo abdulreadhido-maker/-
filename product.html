@@ -4,29 +4,25 @@
 <title>المنتج</title>
 
 <style>
-body{
-font-family:Arial;
-background:#f5f5f7;
-text-align:center;
-padding-top:120px;
-}
+body{text-align:center;font-family:Arial;background:#f5f5f7;padding-top:100px;}
 
 .box{
 background:white;
+width:300px;
 margin:auto;
-width:320px;
 padding:20px;
 border-radius:15px;
 box-shadow:0 5px 15px rgba(0,0,0,0.1);
 }
 
-button{
+a{
+display:inline-block;
+margin-top:10px;
 padding:10px;
-background:black;
-color:white;
-border:none;
+border:1px solid black;
+text-decoration:none;
+color:black;
 border-radius:10px;
-cursor:pointer;
 }
 </style>
 </head>
@@ -34,43 +30,11 @@ cursor:pointer;
 <body>
 
 <div class="box">
-<h2 id="name"></h2>
-<p>منتج احترافي عالي الجودة</p>
-<button onclick="add()">إضافة للسلة</button>
+<h2>منتج مميز</h2>
+<p>تفاصيل المنتج هنا</p>
+
+<a href="cart.html">إضافة للسلة</a>
 </div>
-
-<script>
-let name=localStorage.getItem("product");
-document.getElementById("name").innerText=name;
-
-let cart=JSON.parse(localStorage.getItem("cart"))||[];
-
-function add(){
-cart.push(name);
-localStorage.setItem("cart",JSON.stringify(cart));
-alert("تمت الإضافة 🛒");
-}
-</script>
 
 </body>
 </html>
-<h2 id="name"></h2>
-
-<button onclick="add()">إضافة للسلة</button>
-
-<script>
-let product = localStorage.getItem("product");
-document.getElementById("name").innerText = product;
-
-function add(){
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
-cart.push(product);
-localStorage.setItem("cart",JSON.stringify(cart));
-}
-</script>
-<a href="cart.html">إضافة والذهاب للسلة</a>
-<script>
-if(!localStorage.getItem("user")){
-location.href="auth.html";
-}
-</script>
