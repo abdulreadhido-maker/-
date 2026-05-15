@@ -1,41 +1,28 @@
+<!DOCTYPE html>
 <html lang="ar">
 <head>
 <meta charset="UTF-8">
 <title>الدفع</title>
 
 <style>
-body{
-font-family:Arial;
-background:linear-gradient(#f5f5f7,#fff);
-text-align:center;
-padding-top:100px;
-}
+body{text-align:center;font-family:Arial;background:#f5f5f7;padding-top:100px;}
 
 .box{
 background:white;
+width:300px;
 margin:auto;
-width:320px;
 padding:20px;
 border-radius:15px;
-box-shadow:0 5px 15px rgba(0,0,0,0.1);
 }
 
-input{
-width:90%;
-padding:10px;
-margin:5px;
-border-radius:10px;
-border:1px solid #ccc;
-}
-
-button{
-width:95%;
+a{
+display:block;
+margin-top:10px;
 padding:10px;
 background:green;
 color:white;
-border:none;
+text-decoration:none;
 border-radius:10px;
-cursor:pointer;
 }
 </style>
 </head>
@@ -43,39 +30,11 @@ cursor:pointer;
 <body>
 
 <div class="box">
-<h2>💳 الدفع النهائي</h2>
+<h2>💳 الدفع</h2>
+<p>واجهة دفع فقط</p>
 
-<input placeholder="الاسم">
-<input placeholder="العنوان">
-<input placeholder="رقم البطاقة">
-
-<button onclick="pay()">إتمام الدفع</button>
+<a href="index.html">إنهاء</a>
 </div>
-
-<script>
-function pay(){
-localStorage.removeItem("cart");
-alert("🎉 تم الدفع بنجاح!");
-location.href="index.html";
-}
-</script>
 
 </body>
 </html>
-<h2>الدفع</h2>
-
-<button onclick="pay()">إتمام</button>
-
-<script>
-function pay(){
-localStorage.removeItem("cart");
-alert("تم الدفع 🎉");
-location.href="index.html";
-}
-</script>
-<a href="index.html">رجوع للرئيسية</a>
-<script>
-if(!localStorage.getItem("user")){
-location.href="auth.html";
-}
-</script>
