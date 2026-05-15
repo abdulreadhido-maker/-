@@ -1,189 +1,27 @@
-<!DOCTYPE html>
 <html lang="ar">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>متجر احترافي</title>
-
+<title>الرئيسية</title>
 <style>
-body{
-  margin:0;
-  font-family:Arial;
-  background:#f5f5f7;
-  color:#111;
-}
-
-/* الهيدر */
-header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:15px 40px;
-  background:white;
-  position:sticky;
-  top:0;
-  box-shadow:0 2px 10px rgba(0,0,0,0.05);
-}
-
-.logo{
-  font-weight:bold;
-  font-size:22px;
-}
-
-nav a{
-  margin:0 10px;
-  text-decoration:none;
-  color:#111;
-}
-
-/* الصفحة الرئيسية */
-.hero{
-  text-align:center;
-  padding:70px 20px;
-  background:linear-gradient(to bottom,#fff,#e9e9e9);
-}
-
-.hero h1{
-  font-size:50px;
-  margin:0;
-}
-
-.hero p{
-  color:#666;
-  font-size:18px;
-}
-
-/* المنتجات */
-.products{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
-  padding:40px;
-}
-
-.card{
-  background:white;
-  border-radius:20px;
-  padding:15px;
-  text-align:center;
-  box-shadow:0 10px 25px rgba(0,0,0,0.08);
-}
-
-.card img{
-  width:100%;
-  border-radius:15px;
-}
-
-.card button{
-  margin-top:10px;
-  padding:10px 20px;
-  border:none;
-  background:black;
-  color:white;
-  border-radius:10px;
-  cursor:pointer;
-}
-
-/* السلة */
-.cart{
-  background:white;
-  margin:30px;
-  padding:20px;
-  border-radius:20px;
-  box-shadow:0 10px 25px rgba(0,0,0,0.08);
-}
-
-li{
-  list-style:none;
-  padding:10px;
-  border-bottom:1px solid #eee;
-}
-
-.clear{
-  background:red;
-  color:white;
-  border:none;
-  padding:10px;
-  border-radius:10px;
-  cursor:pointer;
-}
+body{margin:0;font-family:Arial;background:#f5f5f7;text-align:center;}
+header{background:white;padding:15px;box-shadow:0 2px 10px rgba(0,0,0,0.1);}
+a{margin:10px;text-decoration:none;color:black;font-weight:bold;}
+.hero{padding:80px;}
+h1{font-size:40px;}
 </style>
 </head>
-
 <body>
 
 <header>
-  <div class="logo">🛍️ متجر فاخر</div>
-  <nav>
-    <a href="#home">الرئيسية</a>
-    <a href="#products">المنتجات</a>
-    <a href="#cart">السلة</a>
-  </nav>
+<a href="index.html">الرئيسية</a>
+<a href="shop.html">المتجر</a>
+<a href="cart.html">السلة</a>
 </header>
 
-<section class="hero" id="home">
-  <h1>متجر احترافي</h1>
-  <p>أفضل المنتجات مع تجربة تسوق بسيطة ومرتبة</p>
-</section>
-
-<section class="products" id="products">
-
-  <div class="card">
-    <img src="https://placehold.co/300x200?text=iPhone">
-    <h3>آيفون</h3>
-    <p>4500 ريال</p>
-    <button onclick="add('آيفون')">إضافة للسلة</button>
-  </div>
-
-  <div class="card">
-    <img src="https://placehold.co/300x200?text=Samsung">
-    <h3>سامسونج</h3>
-    <p>3200 ريال</p>
-    <button onclick="add('سامسونج')">إضافة للسلة</button>
-  </div>
-
-  <div class="card">
-    <img src="https://placehold.co/300x200?text=AirPods">
-    <h3>سماعات</h3>
-    <p>900 ريال</p>
-    <button onclick="add('سماعات')">إضافة للسلة</button>
-  </div>
-
-</section>
-
-<section class="cart" id="cart">
-  <h2>🛒 السلة</h2>
-  <ul id="list"></ul>
-  <button class="clear" onclick="clearCart()">مسح السلة</button>
-</section>
-
-<script>
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-function render(){
-  let list = document.getElementById("list");
-  list.innerHTML = "";
-  cart.forEach(item=>{
-    let li = document.createElement("li");
-    li.textContent = item;
-    list.appendChild(li);
-  });
-}
-
-function add(item){
-  cart.push(item);
-  localStorage.setItem("cart", JSON.stringify(cart));
-  render();
-}
-
-function clearCart(){
-  cart = [];
-  localStorage.removeItem("cart");
-  render();
-}
-
-render();
-</script>
+<div class="hero">
+<h1>🛍️ مرحباً بك في المتجر</h1>
+<p>أفضل تجربة تسوق إلكتروني</p>
+</div>
 
 </body>
 </html>
