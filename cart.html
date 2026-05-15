@@ -1,104 +1,40 @@
+<!DOCTYPE html>
 <html lang="ar">
 <head>
 <meta charset="UTF-8">
 <title>السلة</title>
 
 <style>
-body{text-align:center;font-family:Arial;background:#f5f5f7;padding-top:100px;}
+body{font-family:Arial;text-align:center;background:#f5f5f7;padding-top:100px;}
 
-li{
-list-style:none;
-padding:10px;
+.box{
 background:white;
-margin:5px;
-border-radius:10px;
-display:flex;
-justify-content:space-between;
+width:300px;
+margin:auto;
+padding:20px;
+border-radius:15px;
 }
 
-button{
-background:red;
+a{
+display:block;
+margin-top:10px;
+padding:10px;
+background:black;
 color:white;
-border:none;
-padding:6px 10px;
-border-radius:8px;
-cursor:pointer;
+text-decoration:none;
+border-radius:10px;
 }
 </style>
 </head>
 
 <body>
 
+<div class="box">
 <h2>🧺 السلة</h2>
+<p>لا يوجد حفظ بدون JS</p>
 
-<ul id="list"></ul>
-
-<button onclick="clearCart()">مسح الكل</button>
-
-<script>
-let cart=JSON.parse(localStorage.getItem("cart"))||[];
-
-function render(){
-let list=document.getElementById("list");
-list.innerHTML="";
-
-cart.forEach((i,idx)=>{
-let li=document.createElement("li");
-li.innerHTML=i + `<button onclick="del(${idx})">حذف</button>`;
-list.appendChild(li);
-});
-}
-
-function del(i){
-cart.splice(i,1);
-localStorage.setItem("cart",JSON.stringify(cart));
-render();
-}
-
-function clearCart(){
-localStorage.removeItem("cart");
-cart=[];
-render();
-}
-
-render();
-</script>
+<a href="checkout.html">الدفع</a>
+</div>
 
 </body>
 </html>
-<ul id="list"></ul>
-
-<button onclick="checkout()">الدفع</button>
-
-<script>
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-function render(){
-let list = document.getElementById("list");
-list.innerHTML="";
-
-cart.forEach((item,i)=>{
-let li=document.createElement("li");
-li.innerHTML=item + " <button onclick='remove("+i+")'>حذف</button>";
-list.appendChild(li);
-});
-}
-
-function remove(i){
-cart.splice(i,1);
-localStorage.setItem("cart",JSON.stringify(cart));
-render();
-}
-
-function checkout(){
-location.href="checkout.html";
-}
-
-render();
-</script>
-<a href="checkout.html">الدفع</a>
-<script>
-if(!localStorage.getItem("user")){
-location.href="auth.html";
-}
-</script>
