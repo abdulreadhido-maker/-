@@ -97,3 +97,8 @@ location.href="checkout.html";
 render();
 </script>
 <a href="checkout.html">الدفع</a>
+<script>
+if(!localStorage.getItem("user")){
+location.href="auth.html";
+}
+</script>
