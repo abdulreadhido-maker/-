@@ -110,3 +110,18 @@ c.style.display=c.innerText.toLowerCase().includes(v)?"block":"none";
 
 </body>
 </html>
+<button onclick="add('آيفون')">شراء</button>
+<button onclick="openProduct('آيفون')">تفاصيل</button>
+
+<script>
+function add(name){
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+cart.push(name);
+localStorage.setItem("cart",JSON.stringify(cart));
+}
+
+function openProduct(name){
+localStorage.setItem("product",name);
+location.href="product.html";
+}
+</script>
